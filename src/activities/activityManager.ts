@@ -46,6 +46,12 @@ export class ActivityManager {
         );
     }
     public getActivityAbsorbsClicking(): boolean {
+        console.log("getActivityAbsorbsClicking");
+        console.log(this.currentActivity);
+        console.log(
+            !!this.currentActivity &&
+                !!this.currentActivity.requirements.clicking
+        );
         return (
             !!this.currentActivity &&
             !!this.currentActivity.requirements.clicking
@@ -117,6 +123,7 @@ export class ActivityManager {
                 this.loadedActivityScripts
             );
         }
+        console.log(this.loadedActivityScripts);
     }
 
     public showingPage(bloomPageElement: HTMLElement) {
@@ -130,7 +137,8 @@ export class ActivityManager {
 
         // OK, let's look at this page and see if has an activity:
         const name = bloomPageElement.getAttribute("data-activity");
-
+        console.log("showingPage");
+        console.log(name);
         if (name) {
             // We should have learned about this activity when the book
             // was first loaded, and dynamically loaded its javascript,
@@ -149,6 +157,10 @@ export class ActivityManager {
                 bloomPageElement.classList.add("bloom-activityPlayback");
                 activity.runningObject!.start(this.soundPlayer);
             }
+        } else if (
+            LegacyQuestionHandler.isLegacyQuestionPage(bloomPageElement)
+        ) {
+            this.currentActivity = LegacyQuestionHandler.getLegacyQuestionActivity();
         }
     }
 }

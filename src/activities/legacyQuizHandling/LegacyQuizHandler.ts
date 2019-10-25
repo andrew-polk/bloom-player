@@ -106,21 +106,41 @@ export class LegacyQuestionHandler {
                 src => {
                     if (!loadedActivityScripts[src]) {
                         if (src.endsWith("/simpleComprehensionQuiz.js")) {
+                            console.log("LegacyQuizHandler loadQuizScript");
                             this.loadQuizScript(
-                                url =>
-                                    (loadedActivityScripts[url] = {
-                                        // simpleComprehensionQuiz isn't a module yet, doesn't use our API yet, so module is null
-                                        name: src,
-                                        module: undefined,
-                                        runningObject: undefined,
-                                        requirements: { clicking: true }
-                                    })
+                                () => {}
+                                //     url => {
+                                //     loadedActivityScripts[url] = {
+                                //         // simpleComprehensionQuiz isn't a module yet, doesn't use our API yet, so module is null
+                                //         name: src,
+                                //         module: undefined,
+                                //         runningObject: undefined,
+                                //         requirements: { clicking: true }
+                                //     };
+                                //     console.log(pageDiv.attributes);
+                                //     pageDiv.setAttribute("data-activity", url);
+                                //     console.log(pageDiv.attributes);
+                                // }
                             );
                         }
                     }
                 }
             );
         }
+    }
+
+    public static getLegacyQuestionActivity(): IActivityInformation {
+        return {
+            // simpleComprehensionQuiz isn't a module yet, doesn't use our API yet, so module is null
+            name: "LegacyQuestion",
+            module: undefined,
+            runningObject: undefined,
+            requirements: { clicking: true }
+        };
+    }
+
+    public static isLegacyQuestionPage(bloomPageElement: HTMLElement): boolean {
+        return bloomPageElement.classList.contains("bloom-interactive-page");
     }
 
     // currently only for 4.6-style simpleComprehensionQuiz, which used a actual <script> tag

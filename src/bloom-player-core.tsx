@@ -1196,6 +1196,7 @@ export class BloomPlayerCore extends React.Component<IProps, IState> {
                                     this.getSlideClass(index)
                                 }
                                 onClick={e => {
+                                    console.log("onClick");
                                     if (
                                         !this.state.ignorePhonyClick && // if we're dragging, that isn't a click we want to propagate
                                         this.props.onContentClick &&

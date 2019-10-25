@@ -357,6 +357,8 @@ export const BloomPlayerControls: React.FunctionComponent<
                     setHasVideo(pageProps.hasVideo);
                 }}
                 onContentClick={e => {
+                    console.log('onContentClick');
+                    console.log(e);
                     if (props.allowToggleAppBar) {
                         setShowAppBar(!showAppBar);
                         // Note: we could get the useEffect() to run this by listing
