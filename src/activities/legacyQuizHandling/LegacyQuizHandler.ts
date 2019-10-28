@@ -141,6 +141,7 @@ export class LegacyQuestionHandler {
 
     public static isLegacyQuestionPage(bloomPageElement: HTMLElement): boolean {
         return bloomPageElement.classList.contains("bloom-interactive-page");
+        bloomPageElement.
     }
 
     // currently only for 4.6-style simpleComprehensionQuiz, which used a actual <script> tag

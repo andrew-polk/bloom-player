@@ -430,6 +430,11 @@ export class BloomPlayerCore extends React.Component<IProps, IState> {
                     this.questionCount++;
                 }
             }
+
+            //considering addding something to the page here (data-activity)
+            if (LegacyQuestionHandler.isLegacyQuestionPage(page)) {
+            }
+
             swiperContent.push(page.outerHTML);
 
             // look for activities on this page
