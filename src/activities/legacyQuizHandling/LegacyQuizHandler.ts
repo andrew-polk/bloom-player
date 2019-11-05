@@ -139,9 +139,20 @@ export class LegacyQuestionHandler {
         };
     }
 
-    public static isLegacyQuestionPage(bloomPageElement: HTMLElement): boolean {
+    public static isLegacyQuestionPage(bloomPageElement: Element): boolean {
+        xpath;
+
+        if (bloomPageElement.ownerDocument) {
+            console.log(bloomPageElement.ownerDocument.scripts);
+            const scripts = bloomPageElement.ownerDocument.scripts;
+            for (let i = 0; i < scripts.length; i++) {
+                console.log(scripts[i].src);
+            }
+            // bloomPageElement.ownerDocument.scripts.foreach(script => {
+
+            // });
+        }
         return bloomPageElement.classList.contains("bloom-interactive-page");
-        bloomPageElement.
     }
 
     // currently only for 4.6-style simpleComprehensionQuiz, which used a actual <script> tag

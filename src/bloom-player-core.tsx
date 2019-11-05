@@ -431,7 +431,7 @@ export class BloomPlayerCore extends React.Component<IProps, IState> {
                 }
             }
 
-            //considering addding something to the page here (data-activity)
+            //considering adding something to the page here (data-activity)
             if (LegacyQuestionHandler.isLegacyQuestionPage(page)) {
             }
 
