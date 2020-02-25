@@ -1,5 +1,7 @@
 // This file exists to import everything else (and define the module exports).
 // It is the root for building the bundle.
+// tslint:disable-next-line: no-submodule-imports
+import "core-js/features/set";
 import { InitBloomPlayerControls } from "./bloom-player-controls";
 
 // receiveMessage is used by parent windows (currently native Android code using WebView)

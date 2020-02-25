@@ -7,7 +7,7 @@ import axios, { AxiosPromise } from "axios";
 import Swiper, { SwiperInstance } from "react-id-swiper";
 // This loads some JS right here that is a polyfill for the (otherwise discontinued) scoped-styles html feature
 // tslint:disable-next-line: no-submodule-imports
-import "style-scoped/scoped"; // maybe use .min.js after debugging?
+// import "style-scoped/scoped"; // maybe use .min.js after debugging?
 // tslint:disable-next-line: no-submodule-imports
 import "swiper/dist/css/swiper.css";
 // tslint:enable:no-submodule-imports
@@ -1261,9 +1261,7 @@ export class BloomPlayerCore extends React.Component<IProps, IState> {
                                     index - this.state.currentSwiperIndex
                                 ) < 2 ? (
                                     <>
-                                        <style scoped={true}>
-                                            {this.state.styleRules}
-                                        </style>
+                                        <style>{this.state.styleRules}</style>
                                         <div
                                             className="bloomPlayer-page"
                                             dangerouslySetInnerHTML={{

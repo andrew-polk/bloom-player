@@ -104,15 +104,19 @@ module.exports = merge(core, {
                                     "@babel/preset-env",
                                     {
                                         targets: {
-                                            browsers: [
-                                                "last 3 ChromeAndroid versions", // this is kind of bogus, it ignores the number
-                                                "Firefox >= 45", // what Bloom Desktop 4.7 needs
-                                                ">1%" //don't support if the browser is <= 1% use
-                                            ]
-                                        }
+                                            chrome: "30"
+                                            // browsers: [
+                                            //     "last 3 ChromeAndroid versions", // this is kind of bogus, it ignores the number
+                                            //     "Firefox >= 45", // what Bloom Desktop 4.7 needs
+                                            //     ">1%" //don't support if the browser is <= 1% use
+                                            // ]
+                                        },
+                                        useBuiltIns: "entry",
+                                        corejs: 3.6
                                     }
                                 ]
-                                //"babel-preset-react" this leads to an error if we export from raw .js, and we aren't doing react with js
+                                // "@babel/preset-react",
+                                // "@babel/preset-typescript"
                             ].map(localResolve)
                         }
                     }

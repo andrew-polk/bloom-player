@@ -1,4 +1,6 @@
 import i18nData from "./i18n.json";
+// tslint:disable-next-line: no-submodule-imports
+import "core-js/features/map";
 
 // Handles loading and retrieving of localization data.
 //

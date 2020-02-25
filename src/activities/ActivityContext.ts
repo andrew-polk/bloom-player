@@ -103,7 +103,7 @@ export class ActivityContext {
                 "style"
             );
             style.setAttribute("data-activity-stylesheet", ""); // value doesn't matter
-            style.setAttribute("scoped", "true");
+            // style.setAttribute("scoped", "true");
             style.innerText = css;
             this.pageElement.parentNode!.insertBefore(style, this.pageElement); //NB: will be added even if firstChild is null
         }
